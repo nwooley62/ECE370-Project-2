@@ -1,14 +1,14 @@
 #include <BasicLinearAlgebra.h>;
 
-#define rightMotor = 1;
-#define leftMotor = 2;
-#define rightIR = 3;
-#define leftIR = 4;
+#define rightMotor 1;
+#define leftMotor 2;
+#define rightIR 3;
+#define leftIR 4;
 
-#define wheelRadius = 2;
-#define baseline = 10;
+#define wheelRadius 2;
+#define baseline 10;
 
-float circumference = wheelRadius * 2 * PI;
+float circumference = wheelRadius * TWO_PI;
 float tickDistance = wheelRadius * deg2rad(90/75);
 float x = 0, xDelta, y = 0, yDelta, thetaZ = 0, deltaThetaZ;
 float thetaZGlobal = tickDistance / baseline;
