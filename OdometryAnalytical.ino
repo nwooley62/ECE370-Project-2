@@ -1,12 +1,12 @@
-#define rightMotor = 1;
-#define leftMotor = 2;
-#define rightIR = 3;
-#define leftIR = 4;
+#define rightMotor 1;
+#define leftMotor 2;
+#define rightIR 3;
+#define leftIR 4;
 
-#define wheelRadius = 2;
-#define baseline = 10;
+#define wheelRadius 2;
+#define baseline 10;
 
-float circumference = wheelRadius * 2 * PI;
+float circumference = wheelRadius * TWO_PI;
 float tickDistance = wheelRadius * deg2rad(90/75);
 float x = 0, xDelta, y = 0, yDelta, thetaZ = 0, deltaThetaZ;
 float thetaZGlobal = tickDistance / baseline;
@@ -25,19 +25,19 @@ void setup() {
 void loop() { }
 
 void leftTick(){
-  thetaZ += deltaThetaZ;
+  thetaZ += thetaZGlobal;
   yDelta = xGlobal*cos(thetaZGlobal) + yGlobal*sin(thetaZGlobal);
-  xDelta = xBlobal*sin(thetaZGlobal) + yGlobal*cos(thetaZGlobal);
+  xDelta = xGlobal*sin(thetaZGlobal) + yGlobal*cos(thetaZGlobal);
   y -= yDelta;
   x += xDelta;
-  Serial.println("X: " + x + "  Y: " + y);
+  //Serial.println("X: " + x + "  Y: " + y);
 }
 
 void rightTick(){
   thetaZ -= deltaThetaZ;
   yDelta = xGlobal*cos(thetaZGlobal) + yGlobal*sin(thetaZGlobal);
-  xDelta = xBlobal*sin(thetaZGlobal) + yGlobal*cos(thetaZGlobal);
+  xDelta = xGlobal*sin(thetaZGlobal) + yGlobal*cos(thetaZGlobal);
   y += yDelta;
   x += xDelta;
-  Serial.println("X: " + x + "  Y: " + y);
+  //Serial.println("X: " + x + "  Y: " + y);
 }
